@@ -76,7 +76,7 @@ to the deployed backend URL, and redeploy frontend.
 ## Links
 - GitHub Repository: https://github.com/dhiraj321321/WordCount_Studio
 - Live Frontend (GitHub Pages): https://dhiraj321321.github.io/WordCount_Studio
-- Live Backend (Render): <PASTE_YOUR_RENDER_BACKEND_URL_HERE>
+
 
 ## Author
 Dhiraj Parida
