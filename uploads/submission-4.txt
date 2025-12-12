@@ -1,0 +1,27 @@
+Functional Frontend: A complete user interface was developed using React, featuring 
+reusable components, client-side routing via react-router-dom, and state management 
+through the Context API (AuthContext, TrainContext). Key functionalities realized include 
+user registration, login, train searching, displaying search results, booking ticket forms 
+with passenger details, viewing booking/complaint/food order history, and an 
+administrative panel for train management. Dynamic elements, such as the conditional 
+display of the in-train service dashboard and modals for service requests, were 
+implemented. sessionStorage was successfully used to persist search results, enhancing 
+user experience during navigation. 
+2. Secure Backend API: A robust RESTful API was built using Spring Boot, exposing endpoints 
+for all required functionalities. Spring Security was implemented to secure the API, 
+utilizing JWT for stateless authentication. Public endpoints were correctly configured, 
+while protected endpoints require valid JWTs, processed by a custom JwtAuthFilter. Role
+based access control effectively restricts administrative functions (@PreAuthorize) to 
+users with the 'ADMIN' role. Password encoding (BCryptPasswordEncoder) ensures 
+secure storage of user credentials. CORS was configured to allow communication 
+specifically from the frontend application. 
+3. Data Persistence and Management: Spring Data JPA and Hibernate successfully managed 
+data persistence with the PostgreSQL database. Entities accurately mapped to database 
+tables, including handling bidirectional relationships (e.g., FoodOrder and 
+FoodOrderItem). Repositories provided a clean abstraction layer for database operations. 
+Hibernate's ddl-auto=update feature facilitated rapid schema evolution during 
+development. 
+4. Successful Integration: The frontend and backend were successfully integrated. Axios, 
+configured with an interceptor, seamlessly handled API requests, including the automatic 
+attachment of JWT tokens for authenticated calls. Data transfer formats (JSON, DTOs) 
+were consistent between the client and server.
