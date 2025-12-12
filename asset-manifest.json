@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/WordCount_Studio/static/css/main.28d2daa4.css",
+    "main.js": "/WordCount_Studio/static/js/main.08feb483.js",
+    "index.html": "/WordCount_Studio/index.html",
+    "main.28d2daa4.css.map": "/WordCount_Studio/static/css/main.28d2daa4.css.map",
+    "main.08feb483.js.map": "/WordCount_Studio/static/js/main.08feb483.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.28d2daa4.css",
+    "static/js/main.08feb483.js"
+  ]
+}
