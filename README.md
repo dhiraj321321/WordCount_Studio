@@ -1,70 +1,82 @@
-# Getting Started with Create React App
+# WordCount Studio (Week 8) – Wordcount Tools
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A full‑stack **Wordcount Tools** application built for Week 8 project submission.
+Users can paste/type content and instantly get word analytics. Submissions are stored in PostgreSQL and the backend also saves the raw content as a file for processing.
 
-## Available Scripts
+## Tech Stack
+- Frontend: React (CRA) + Axios
+- Backend: Spring Boot (Java) + Spring Data JPA
+- Database: PostgreSQL
+- Deployment: GitHub Pages (Frontend), Render (Backend + PostgreSQL)
 
-In the project directory, you can run:
+## Key Features
+- Live text editor (paste/type content)
+- Word count + Character count + Sentence count + Paragraph count
+- Submission history (stored in PostgreSQL)
+- Export report (downloads latest analysis as a `.txt` report)
+- Modern glassmorphism dashboard UI (WordStudio Neo)
 
-### `npm start`
+## Project Structure (Monorepo)
+WordCount_Studio/
+src/ # Spring Boot backend
+pom.xml # Spring Boot Maven config
+wordcount-ui/ # React frontend
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+text
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## API Endpoints (Backend)
+Base URL: `/api/wordcount`
+- `POST /api/wordcount` → analyze and save submission
+- `GET  /api/wordcount/history` → get saved submissions
 
-### `npm test`
+## Run Locally
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 1) Backend (Spring Boot)
+1. Create a PostgreSQL database (example: `wordcountdb`)
+2. Update `src/main/resources/application.properties` with your DB credentials
+3. Run:
+mvn spring-boot:run
 
-### `npm run build`
+text
+Backend runs at: `http://localhost:8080`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 2) Frontend (React)
+cd wordcount-ui
+npm install
+npm start
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+text
+Frontend runs at: `http://localhost:3000`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+> Note: When running locally, `wordcount-ui/src/api.js` should point to `http://localhost:8080/api/wordcount`.
 
-### `npm run eject`
+## Deployment
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Frontend (GitHub Pages)
+This project uses `gh-pages` to deploy the React build.
+cd wordcount-ui
+npm run deploy
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+text
+GitHub Pages URL:
+- https://dhiraj321321.github.io/WordCount_Studio
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Backend (Render)
+1. Create a PostgreSQL database on Render
+2. Deploy Spring Boot backend as a Web Service
+3. Set environment variables:
+- `SPRING_DATASOURCE_URL`
+- `SPRING_DATASOURCE_USERNAME`
+- `SPRING_DATASOURCE_PASSWORD`
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Then update frontend API URL in:
+`wordcount-ui/src/api.js`
+to the deployed backend URL, and redeploy frontend.
 
-## Learn More
+## Links
+- GitHub Repository: https://github.com/dhiraj321321/WordCount_Studio
+- Live Frontend (GitHub Pages): https://dhiraj321321.github.io/WordCount_Studio
+- Live Backend (Render): <PASTE_YOUR_RENDER_BACKEND_URL_HERE>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Author
+Dhiraj Parida
